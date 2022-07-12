@@ -9,4 +9,9 @@ pipeline {
             }
         }
     }
+        stage('Start minikube') {
+            steps {
+                sh 'minikube start' 
+            }
+        }
 }
