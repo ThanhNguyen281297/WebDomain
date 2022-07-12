@@ -8,10 +8,10 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/ThanhNguyen281297/TestDeploy.git' 
             }
         }
-    }
         stage('Start minikube') {
             steps {
                 sh 'minikube start' 
             }
         }
+    }   
 }
