@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Run Web WP') {
             steps {
-                sh "sudo -E kubectl port-forward services/wordpress 80:80 --address='0.0.0.0'"
+                sh "sudo -E kubectl port-forward service/wordpress 80:80 --address='0.0.0.0'"
             }
         }
     }   
