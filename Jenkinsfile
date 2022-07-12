@@ -14,5 +14,10 @@ pipeline {
                 sh 'kubectl apply -k ./'
             }
         }
+        stage('Run Web WP') {
+            steps {
+                sh "kubectl port-forward services/wordpress --address='0.0.0.0'"
+            }
+        }
     }   
 }
