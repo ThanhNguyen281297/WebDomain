@@ -3,9 +3,9 @@ pipeline {
         label 'DockerNode'
     }
     stages {
-        stage('Start minikube') {
+        stage('Clone code') {
             steps {
-                sh 'minikube start'
+                git branch: 'main', url: 'https://github.com/ThanhNguyen281297/TestDeploy.git' 
             }
         }
     }
