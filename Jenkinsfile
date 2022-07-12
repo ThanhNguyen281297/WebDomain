@@ -10,7 +10,8 @@ pipeline {
         }
         stage('Start minikube') {
             steps {
-                sh 'minikube start' 
+                sh 'minikube start'
+                sh 'kubectl apply -f ./'
             }
         }
     }   
