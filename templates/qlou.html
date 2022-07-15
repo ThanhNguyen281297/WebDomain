@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            font-size: 15px;
+            padding: 0;
+            margin: 0;
+        }
+        #menu {
+            float: left;
+        }
+        #menu ul {
+            background: #52accc;
+            width: 160px;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            height: 1000px;
+        }
+        #menu ul li {
+            width: auto;
+            height: 40px;
+            line-height: 40px;
+            border-bottom: 1px solid #fff;
+            padding: 0 1em;
+            position: relative;
+        }
+        #menu ul li a {
+            tex<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            font-size: 15px;
+            padding: 0;
+            margin: 0;
+        }
+        #menu {
+            float: left;
+        }
+        #menu ul {
+            background: #52accc;
+            width: 160px;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            height: 1000px;
+        }
+        #menu ul li {
+            width: auto;
+            height: 40px;
+            line-height: 40px;
+            border-bottom: 1px solid #fff;
+            padding: 0 1em;
+            position: relative;
+        }
+        #menu ul li a {
+            text-decoration: none;
+            color: #fff;
+            display: block;
+        }
+        #menu ul li:hover {
+            background: #0073aa;
+        }
+        #menu ul li:hover .submenu {
+            display: block;
+            height: auto;
+        }
+        #menu .submenu {
+            position: absolute;
+            top: 0;
+            left: 160px;
+            display: none;
+            height: auto;
+        }
+        #oumanager {
+            float: left;
+            padding: 20px;
+            border: 1px solid #ccc;
+            width: auto;
+        }
+        #comboBox {
+            border-radius: 3px;
+            padding: 0 24px 0 8px;
+            height: 30px;
+        }
+        input[type=text], select {
+            margin-left: 27px; 
+            width: 165px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        label {
+            color: #333;
+        }
+        h2 {
+            margin-top: 0px;
+            margin-bottom: 0px;
+            padding-bottom:  25px;
+            text-align: left;
+            font-weight: 300;
+            line-height: 1.3;
+        }
+        button {
+            background: #e1a948;
+            border-color: #e1a948;
+            color: #fff;
+            height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="menu">
+        <ul>
+            <li><a href="index.html">Trang chủ</a></li>
+            <li>
+                <a>Quản lý</a>
+                <ul class="submenu">
+                    <li><a href="qlou.html">Quản lý</a></li>
+                    <li><a href="install.html">Cài đặt các gói</a></li>
+                </ul>
+            </li>
+            <li><a href="share.html">Share</a></li>
+        </ul>
+    </div>
+    <div id="oumanager" style = "padding-left: 20px;margin-left: 20px;margin-top: 20px;">
+        <form action="/add" method="POST">
+            <h2>Manager Organizational Unit, Group And User</h2>
+            <label style="padding-right: 15px;">Danh sách Ou</label>
+            <select name='opOuname' id="comboBox">
+                <option>Chọn Ou</option>
+                {% for o in ou %}
+                    {% for d in o %}
+                        <option>{{ d }}</option>
+                    {% endfor %}
+                {% endfor %}
+            </select>
+            <label style="padding-right: 15px;padding-left: 50px;">Danh sách Group</label>
+            <select name='opGroup' id="comboBox">
+                <option>Chọn Group</option>
+                {% for o in group %}
+                    {% for d in o %}
+                        <option>{{ d }}</option>
+                    {% endfor %}
+                {% endfor %}
+            </select>
+            <label style="padding-right: 15px;padding-left: 50px;">Danh sách User</label>
+            <select name='opUser' id="comboBox">
+                <option>Chọn User</option>
+                {% for o in user %}
+                    {% for d in o %}
+                        <option>{{ d }}</option>
+                    {% endfor %}
+                {% endfor %}
+            </select>
+            </br>
+            </br>
+            <label style="padding-right: 15px;">Nhập OuName</label><input style="height: 24px;" type="text" name="ouname">
+            <label style="padding-right: 15px; padding-left: 50px;">Nhập GroupName</label><input style="height: 24px;" type="text" name="groupname">
+            <label style="padding-right: 15px; padding-left: 50px;">Nhập UserName</label><input style="height: 24px;" type="text" name="username">
+            </br>
+            </br>
+            <input style="padding-right: 15px; padding-left: 50px;" type="checkbox" name="checkOu" value="Yes"><span style="font-size: 13px;">Project container from accidental deletion</span>
+            <span style="padding-right: 15px; padding-left: 125px;">
+                <input type="radio" id="input1" name="option" value="l">
+                <label for="input1">Domain local</label>
+                <input type="radio" id="input2" name="option" value="g">
+                <label for="input2" >Global</label>
+                <input type="radio" id="input3" name="option" value="u">
+                <label for="input3">Universal</label>
+            </span>
+            <label style="padding-right: 15px; padding-left: 67px;">Nhập Password</label><input style="height: 24px;" type="text" name="password">
+            </br>
+            </br>
+            <label style="padding-left: 760px;">Disabled Account</label>
+            <span style="padding-left: 50px;" >
+                <input type="radio" id="input6" name="disabledAccount" value="yes">
+                <label for="input6">Yes</label>
+                <input type="radio" id="input7" name="disabledAccount" value="no">
+                <label for="input7">No</label>
+            </span>
+            </br>
+            </br>
+            <button style="margin-left: 120px"; name='addOu'>Thêm</button>
+            <button name='deleteOu'>Xóa</button>
+            <button style="margin-left: 200px" name='addGroup'>Thêm</button>
+            <button name='deleteGroup'>Xóa</button>
+            <button style="margin-left: 300px" name='addUser'>Thêm</button>
+            <button name='deleteUser'>Xóa</button>
+        </form>
+    </div>
+    <div id="oumanager" style = "padding-left: 20px;margin-left: 20px;margin-top: 20px;">
+        <form action="/add" method="POST">
+            <h2>Change User Of Ou, Group</h2>
+            <label>Danh sách Ou Old</label>
+            <select name='opOuOld' id="comboBox">
+                <option>Chọn Ou Old</option>
+                {% for o in ou %}
+                    {% for d in o %}
+                        <option>{{ d }}</option>
+                    {% endfor %}
+                {% endfor %}
+            </select>
+            <label style="margin-left: 50px;" >Danh sách Ou New</label>
+            <select name='opOuNew' id="comboBox" style="margin-left: 5px;">
+                <option>Chọn Ou New</option>
+                {% for o in ou %}
+                    {% for d in o %}
+                        <option>{{ d }}</option>
+                    {% endfor %}
+                {% endfor %}
+            </select>
+            <label style="padding-right: 15px;padding-left: 50px;">Danh sách User</label>
+            <select name='opUserChange' id="comboBox">
+                <option>Chọn User</option>
+                {% for o in user %}
+                    {% for d in o %}
+                        <option>{{ d }}</option>
+                    {% endfor %}
+                {% endfor %}
+            </select>
+            
+            <button name='changeOu' style="margin-left:20px;">Update</button>
+        </form>
+    </div>
+</body>
+</html>
