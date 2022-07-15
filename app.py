@@ -646,6 +646,6 @@ def check():
         subprocess.run(["powershell", "C:\\Users\\Administrator\\Desktop\\Test\\Install-DC.ps1"], shell=True)
         return render_template('index.html')
 
-app.run(host="0.0.0.0", port=5000)
+app.run(host="0.0.0.0", port=8000)
     
 
